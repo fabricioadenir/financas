@@ -1,0 +1,7 @@
+financas/migrations/__pycache__
+financas/migrations/*initial.py
+financas/__pycache__
+financas/regras_situacoes/__pycache__
+db.sqlite3
+.vscode
+api/__pycache__
