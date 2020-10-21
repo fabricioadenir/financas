@@ -121,3 +121,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DATE_INPUT_FORMATS = ['%Y-%m']
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
