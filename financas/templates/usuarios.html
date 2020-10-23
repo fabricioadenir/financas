@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7"></div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a id="btn-novo" href="#" class="btn btn-sm btn-neutral"
+                        onclick="mostrar_formulario('form-add-usuario', 'view-usuario')">Novo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+    <div class="row" id="view-usuario">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Usuários</h3>
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">Usuário</th>
+                                <th scope="col" class="sort" data-sort="budget">Salário</th>
+                                <th scope="col" class="sort" data-sort="status">Descrição</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="../static/img/theme/maria.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">Maria Odete Boaventura</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    R$ 2.900,00
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-warning"></i>
+                                        <span class="status">Breve descrição</span>
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="#">Editar</a>
+                                            <a class="dropdown-item" href="#">Remover</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="#" class="avatar rounded-circle mr-3">
+                                        <img alt="Image placeholder" src="../static/img/theme/fabricio.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="name mb-0 text-sm">Fabricio Adenir da Silva</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="budget">
+                                R$ 3.100,00
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-success"></i>
+                                    <span class="status">Breve descrição</span>
+                                </span>
+                            </td>
+                            <td class="text-right">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" href="#">Editar</a>
+                                        <a class="dropdown-item" href="#">Remover</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Inicio formulario -->
+    <div class="col-xl-8 order-xl-1" id="form-add-usuario" style="display: none;">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">Editar Perfil </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="#!" class="btn btn-sm btn-neutral"
+                            onclick="mostrar_formulario('form-add-usuario', 'view-user')">Cancelar</a>
+                        <a href="#!" class="btn btn-sm btn-primary"
+                            onclick="mostrar_formulario('form-add-usuario', 'view-user')">Salvar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <!-- Inicio foto edit -->
+                    <div class="card card-profile">
+                        <img src="../static/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
+                        <div class="row justify-content-center">
+                            <div class="card-profile-image">
+                                <img src="../static/img/theme/avatar.jpg" class="rounded-circle">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-neutral  mr-4 ">Foto</a>
+                            <a href="#" class="btn btn-sm btn-neutral float-right">Capa</a>
+                        </div>
+                    </div>
+                    <!-- Fim foto edit -->
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Usuário</label>
+                                    <input type="text" id="input-username" class="form-control" placeholder="Username"
+                                        value="fabricioadenir">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-email">E-mail</label>
+                                    <input type="email" id="input-email" class="form-control"
+                                        placeholder="fabricioadenir@gmail.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-first-name">Primeiro Nome</label>
+                                    <input type="text" id="input-first-name" class="form-control"
+                                        placeholder="First name" value="Fabricio">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-last-name">Sobrenome</label>
+                                    <input type="text" id="input-last-name" class="form-control" placeholder="Last name"
+                                        value="Adenir da Silva">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                    <!-- Address -->
+                    <h6 class="heading-small text-muted mb-4">Informações de renda</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-address">Salário</label>
+                                    <input id="input-address" class="form-control" placeholder="R$ 0,00" value="R$ 0,00"
+                                        type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-city">Extra</label>
+                                    <input type="text" id="input-city" class="form-control" placeholder="R$ 0,00"
+                                        value="R$ 0,00">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="heading-small text-muted mb-4">Informações de acesso</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-address">Senha anterior</label>
+                                    <input id="input-address" class="form-control" placeholder="**********"
+                                        type="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-city">Nova Senha</label>
+                                    <input type="text" id="input-city" class="form-control" placeholder="**********"
+                                        type="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                    <!-- Description -->
+                    <div class="pl-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Descrição</label>
+                            <textarea rows="4" class="form-control"
+                                placeholder="A few words about you ...">Uma breve descrição sobre você e suas rendas.</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="#!" class="btn btn-sm btn-neutral"
+                            onclick="mostrar_formulario('form-add-usuario', 'view-user')">Cancelar</a>
+                        <a href="#!" class="btn btn-sm btn-primary"
+                            onclick="mostrar_formulario('form-add-usuario', 'view-user')">Salvar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Fim formulario -->
+</div>
+{% endblock %}
+{% block scripts %}
+<!-- Meus scripts -->
+<script src="static/js/view-form.js"></script>
+<!-- Fim meus scripts -->
+<script src="../static/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../static/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendor/js-cookie/js.cookie.js"></script>
+<script src="../static/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="../static/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+<!-- Argon JS -->
+<script src="../static/js/argon.js?v=1.2.0"></script>
+{% endblock %}

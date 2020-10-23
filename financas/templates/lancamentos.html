@@ -1,113 +1,194 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-fluid">
-<div class="header-body">
-  <div class="row align-items-center py-4">
-  </div>
-<div class="row">
-  <div class="col-xl-8">
-    <div class="card">
-      <div class="card-header border-0">
-        <div class="row align-items-center">
-          <div class="col">
-            <h3 class="mb-0">Lançamentos</h3>
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+      <div class="header-body">
+          <div class="row align-items-center py-4">
+              <div class="col-lg-6 col-7"></div>
+              <div class="col-lg-6 col-5 text-right">
+                  <a id="btn-novo" href="#" class="btn btn-sm btn-neutral" onclick="mostrar_formulario('form-add-lancamento', 'view-lancamentos')">Novo</a>
+              </div>
           </div>
-          <div class="col text-right">
-            <a href="#!" class="btn btn-sm btn-primary">Novo lançamento</a>
+      </div>
+  </div>
+</div>
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-8">
+      <div class="card" id="view-lancamentos">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <label class="form-control-label" for="input-vencimento">Lançamentos</label>
+                  <input id="mes_calculo" type="month" id="input-vencimento" value="2020-10" class="form-control">
           </div>
         </div>
-      </div>
-      <div class="table-responsive">
-        <!-- Projects table -->
-        <table class="table align-items-center table-flush">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Tipo</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Quantidade</th>
-              <th scope="col">Frequência</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                Compra de marmita
-              </th>
-              <td>
-                10,00
-              </td>
-              <td>
-                5
-              </td>
-              <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> 10,05%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                Combustivel
-              </th>
-              <td>
-                50,00
-              </td>
-              <td>
-                6
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-warning mr-3"></i> 0,25%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                Mercado para casa
-              </th>
-              <td>
-                51,60
-              </td>
-              <td>
-                3
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-warning mr-3"></i> 1,35%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                Beleza
-              </th>
-              <td>
-                20,00
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> 0,10%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                Padaria
-              </th>
-              <td>
-                6,75
-              </td>
-              <td>
-                7
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-danger mr-3"></i> 6,45%
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Frequência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  Marmita
+                </th>
+                <td>
+                  10,00
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  <i class="fas fa-arrow-up text-success mr-3"></i> 10,05%
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Combustivel
+                </th>
+                <td>
+                  50,00
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  <i class="fas fa-arrow-down text-warning mr-3"></i> 0,25%
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Mercado
+                </th>
+                <td>
+                  51,60
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  <i class="fas fa-arrow-down text-warning mr-3"></i> 1,35%
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Beleza
+                </th>
+                <td>
+                  20,00
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  <i class="fas fa-arrow-up text-success mr-3"></i> 0,10%
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Padaria
+                </th>
+                <td>
+                  6,75
+                </td>
+                <td>
+                  7
+                </td>
+                <td>
+                  <i class="fas fa-arrow-down text-danger mr-3"></i> 6,45%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <!-- Formulário de cadastro de lançamentos -->
+    <div class="card" id="form-add-lancamento" style="display: none;">
+      <div class="card-header">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">Cadastrar</h3>
+          </div>
+          <div class="col-md-6 text-right">
+            <a href="#!" class="btn btn-sm btn-neutral" onclick="mostrar_formulario('form-add-lancamento', 'view-lancamentos')">Cancelar</a>
+            <a href="#!" class="btn btn-sm btn-primary" onclick="mostrar_formulario('form-add-lancamento', 'view-lancamentos')">Salvar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <h6 class="heading-small text-muted mb-4">Preencher informações</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-tipo">Tipo lançamento</label>
+                  <select class="form-control" name='tipos' id='tipos-lancamentos' required>
+                    <option value="Marmita">Marmita</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Mercado">Mercado</option>
+                    <option value="Padaria">Padaria</option>
+                  </select>
+                  <!-- <input type="text" id="input-username" class="form-control" placeholder="Username" value="lucky.jesse"> -->
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-quantidade">Quantas vezes</label>
+                  <input type="number" id="input-quantidade" class="form-control" placeholder="12">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-vencimento">Vencimento</label>
+                  <input type="date" id="input-vencimento" class="form-control">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-valor">Valor</label>
+                  <input type="text" id="input-valor" class="form-control" placeholder="R$ 0,00" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Description -->
+          <div class="pl-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">Descrição</label>
+              <textarea rows="4" class="form-control" placeholder="A few words about you ...">Uma breve descrição do que foi comprado e o porque.</textarea>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-8">
+              <!-- <h3 class="mb-0">Cadastrar lançamento </h3> -->
+            </div>
+            <div class="col-md-6 text-right">
+              <a href="#!" class="btn btn-sm btn-neutral" onclick="mostrar_formulario('form-add-lancamento', 'view-lancamentos')">Cancelar</a>
+              <a href="#!" class="btn btn-sm btn-primary" onclick="mostrar_formulario('form-add-lancamento', 'view-lancamentos')">Salvar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <!-- Fim formulário de cadastro de lançamentos -->
 </div>
 {% endblock %}
 {% block scripts %}
+<!-- Meus scripts -->
+<script src="static/js/lancamentos.js"></script>
+<script src="static/js/view-form.js"></script>
+<!-- Fim meus scripts -->
 <script src="../static/vendor/jquery/dist/jquery.min.js"></script>
 <script src="../static/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../static/vendor/js-cookie/js.cookie.js"></script>
